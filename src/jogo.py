@@ -1,4 +1,5 @@
 import pygame
+import random
 
 from src.config import (
     LARGURA_TELA,
@@ -57,11 +58,16 @@ def executar_jogo():
         "imagem": gem_image,
         "rect": gem_image.get_rect(topleft=(500, 300))
     }
-    
+    inimigos = []
     inimigo = {
         "imagem": bat_image,
         "rect": bat_image.get_rect(topleft=(200, 500))
     }
+    tesouro = {
+        "imagem": gem_image,
+        "rect": gem_image.get_rect(topleft=(200, 500))
+    }
+
 
     velocidade = 5
     pontos = 0
@@ -119,6 +125,35 @@ def executar_jogo():
             if inimigo["rect"].y > ALTURA_TELA - inimigo["rect"].height:
                 inimigo["rect"].y = 50
 
+        #VERIFICAR COLISAO TESOURO
+        if verificar_colisao(jogador["rect"], tesouro["rect"]):
+            tesouroChance = random.randint(0,10)
+            pontos = calcular_pontos(pontos, 10)
+
+            if tesouroChance > 5:
+                novo_inimigo = {
+                    "imagem": bat_image,
+                    "rect": bat_image.get_rect(topleft=(
+                        random.randint(0, LARGURA_TELA - 100),
+                        random.randint(0, ALTURA_TELA - 100)
+                    ))
+                }
+                inimigos.append(novo_inimigo)
+            
+            tesouro["rect"].x += 80
+            tesouro["rect"].y += 50
+
+            if tesouro["rect"].x > LARGURA_TELA - tesouro["rect"].width:
+                tesouro["rect"].x = 50
+            if tesouro["rect"].y > ALTURA_TELA - tesouro["rect"].height:
+                tesouro["rect"].y = 50
+
+        for inimigo in inimigos:
+            if verificar_colisao(jogador["rect"], inimigo["rect"]):
+                vidas = tomar_dano(vidas, 1)
+                inimigo["rect"].x += 80
+                inimigo["rect"].y += 50
+
         # Regras de fim de jogo e recorde
         if jogador_perdeu(vidas):
             rodando = False
@@ -134,9 +169,12 @@ def executar_jogo():
         tela.fill(CINZA)
 
         # Desenhando os elementos na tela passando a imagem e o rect de cada dicionário
-        tela.blit(gema["imagem"], gema["rect"])
-        tela.blit(inimigo["imagem"], inimigo["rect"])
+        #tela.blit(gema["imagem"], gema["rect"])
+        #tela.blit(inimigo["imagem"], inimigo["rect"])
         tela.blit(jogador["imagem"], jogador["rect"])
+        tela.blit(tesouro["imagem"], tesouro["rect"])
+        for inimigo in inimigos:
+            tela.blit(inimigo["imagem"], inimigo["rect"])
 
         pygame.display.flip()
 
