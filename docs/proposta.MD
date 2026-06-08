@@ -14,7 +14,7 @@ Liste os integrantes do grupo.
 
 - Nome 1: Vítor Augusto de Souza
 - Nome 2: João Portes
-- Nome 3: Guilherme Chebile
+- Nome 3: Guilherme Luiz Santos Chebile
 - Nome 4: Lucca Campos Xavier
 
 ## 3. Tipo de jogo
