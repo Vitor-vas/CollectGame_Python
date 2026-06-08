@@ -10,4 +10,5 @@ PRETO = (0, 0, 0)
 CINZA = (212,212,212)
 
 CAMINHO_RECORDE = "data/recorde.txt"
-CAMINHO_SPRITES = "assets/imagens/spritesheet.bmp"
+CAMINHO_SPRITES = "assets/imagens/spritesheetTrns.png"
+CAMINHO_BACKGROUND = "assets/imagens/background.png"
