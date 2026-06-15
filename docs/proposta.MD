@@ -16,6 +16,7 @@ Liste os integrantes do grupo.
 - Nome 2: João Portes
 - Nome 3: Guilherme Luiz Santos Chebile
 - Nome 4: Lucca Campos Xavier
+- Nome 5: Vitor Ladeia Sepulveda
 
 ## 3. Tipo de jogo
 
