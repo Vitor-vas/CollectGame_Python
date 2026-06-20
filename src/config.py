@@ -12,3 +12,7 @@ CINZA = (212,212,212)
 CAMINHO_RECORDE = "data/recorde.txt"
 CAMINHO_SPRITES = "assets/imagens/spritesheetTrns.png"
 CAMINHO_BACKGROUND = "assets/imagens/background.png"
+
+ESTADO_MENU = "menu"
+ESTADO_JOGANDO = "jogando"
+ESTADO_FIM = "fim"

@@ -1,4 +1,4 @@
-from src.funcoes import calcular_pontos, jogador_perdeu, limitar_valor, tomar_dano, verificar_colisao
+from src.funcoes import calcular_pontos, jogador_perdeu, limitar_valor, tomar_dano, verificar_colisao, iniciar_jogo, verificar_fim_de_jogo, reiniciar_jogo
 import pygame
 
 #pontos
@@ -65,3 +65,20 @@ def test_verificar_colisao_adjacentes():
     rect1 = pygame.Rect(0, 0, 50, 50)
     rect2 = pygame.Rect(50, 0, 50, 50)
     assert verificar_colisao(rect1, rect2) is False
+
+def test_iniciar_jogo_transiciona_do_menu():
+    assert iniciar_jogo("menu", True) == "jogando"
+    assert iniciar_jogo("menu", False) == "menu"
+    assert iniciar_jogo("jogando", True) == "jogando"
+
+
+def test_verificar_fim_de_jogo():
+    assert verificar_fim_de_jogo("jogando", 0) == "fim"
+    assert verificar_fim_de_jogo("jogando", 1) == "jogando"
+    assert verificar_fim_de_jogo("menu", 0) == "menu"
+
+
+def test_reiniciar_jogo():
+    assert reiniciar_jogo("fim", True) == "menu"
+    assert reiniciar_jogo("fim", False) == "fim"
+    assert reiniciar_jogo("jogando", True) == "jogando"
