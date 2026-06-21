@@ -1,4 +1,4 @@
-from src.funcoes import calcular_pontos, jogador_perdeu, limitar_valor, tomar_dano, verificar_colisao, iniciar_jogo, verificar_fim_de_jogo, reiniciar_jogo
+from src.funcoes import calcular_pontos, jogador_perdeu, limitar_valor, tomar_dano, verificar_colisao, iniciar_jogo, verificar_fim_de_jogo, reiniciar_jogo, pode_usar_porta, trocar_sala, porta_disponivel
 import pygame
 
 #pontos
@@ -66,6 +66,8 @@ def test_verificar_colisao_adjacentes():
     rect2 = pygame.Rect(50, 0, 50, 50)
     assert verificar_colisao(rect1, rect2) is False
 
+
+#menus
 def test_iniciar_jogo_transiciona_do_menu():
     assert iniciar_jogo("menu", True) == "jogando"
     assert iniciar_jogo("menu", False) == "menu"
@@ -82,3 +84,18 @@ def test_reiniciar_jogo():
     assert reiniciar_jogo("fim", True) == "menu"
     assert reiniciar_jogo("fim", False) == "fim"
     assert reiniciar_jogo("jogando", True) == "jogando"
+
+#sala2
+def test_pode_usar_porta():
+    assert pode_usar_porta(100, 100) is True
+    assert pode_usar_porta(150, 100) is True
+    assert pode_usar_porta(99, 100) is False
+
+
+def test_trocar_sala():
+    assert trocar_sala(1) == 2
+    assert trocar_sala(2) == 1
+
+def test_porta_disponivel():
+    assert porta_disponivel(1, 1) is True
+    assert porta_disponivel(2, 1) is False
