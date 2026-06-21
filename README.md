@@ -69,4 +69,8 @@ python main.py
 python -m pytest tests/test_logica.py -v
 ```
 
-
+## Referencia asset externo:
+ - audio de morte: Dark Souls 1
+ - audio de dano: roblox
+ - audio da moeda: youtube
+ - imagens e Spritesheet: IA

@@ -14,6 +14,8 @@ CAMINHO_RECORDE = "data/recorde.txt"
 CAMINHO_SPRITES = "assets/imagens/spritesheetTrns.png"
 CAMINHO_BACKGROUND = "assets/imagens/background.png"
 CAMINHO_BACKGROUND_SALA2 = "assets/imagens/background.png"
+CAMINHO_BACKGROUND_SALA2 = "assets/imagens/background_sala_2.jpeg"
+CAMINHO_BACKGROUND_INICIO = "assets/imagens/background_inicio.jpeg"
 
 ESTADO_MENU = "menu"
 ESTADO_JOGANDO = "jogando"

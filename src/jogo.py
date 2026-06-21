@@ -10,6 +10,7 @@ from src.config import (
     CAMINHO_SPRITES,
     CAMINHO_BACKGROUND,
     CAMINHO_BACKGROUND_SALA2,
+    CAMINHO_BACKGROUND_INICIO,
     BRANCO,
     PRETO,
     CINZA,
@@ -54,10 +55,12 @@ def criar_tesouro(chest_image):
 
 
 def desenhar_tela_inicio(tela, fonte_titulo, fonte_texto):
-    tela.fill(PRETO)
-    titulo = fonte_titulo.render(TITULO_JOGO, True, BRANCO)
+    background_inicio = pygame.image.load(CAMINHO_BACKGROUND_INICIO).convert()
+    background_inicio = pygame.transform.scale(background_inicio, (LARGURA_TELA, ALTURA_TELA))
+    tela.blit(background_inicio, (0, 0))
+    #titulo = fonte_titulo.render(TITULO_JOGO, True, BRANCO)
     instrucao = fonte_texto.render("Pressione ESPACO para iniciar", True, CINZA)
-    tela.blit(titulo, titulo.get_rect(center=(LARGURA_TELA // 2, ALTURA_TELA // 2 - 40)))
+    #tela.blit(titulo, titulo.get_rect(center=(LARGURA_TELA // 2, ALTURA_TELA // 2 - 40)))
     tela.blit(instrucao, instrucao.get_rect(center=(LARGURA_TELA // 2, ALTURA_TELA // 2 + 30)))
 
 
